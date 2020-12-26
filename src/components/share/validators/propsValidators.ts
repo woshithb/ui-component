@@ -10,12 +10,23 @@ interface IPropsValidatorsArgs {
 	propsKeys: string[];
 }
 
+const wrappedAreEqual = (propsKeys: string[]): (preProps, nextProps) => boolean => {
+  return (preProps, nextProps) => {
+    propsKeys.forEach(key => {
+      if (preProps[key] !== nextProps[key]) {
+        return false
+      }
+    })
+    return true
+  }
+}
+
 export const propsValidators = ({
 	propsTypeValidators,
 	propsDefaultvalueMapping,
 	propsKeys,
 }: IPropsValidatorsArgs) => {
-	return (props) => {
+	const validatorsComponent = (props) => {
 		const afterProcessProps = {};
 		propsKeys.forEach((key) => {
 			if (!propsTypeValidators[key]) {
@@ -29,5 +40,6 @@ export const propsValidators = ({
 			...propsDefaultvalueMapping,
 			...afterProcessProps,
 		});
-	};
+  };
+  return React.memo(validatorsComponent, wrappedAreEqual(propsKeys))
 };
