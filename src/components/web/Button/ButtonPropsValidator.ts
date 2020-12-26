@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IButtonProps } from '@components/web';
+import { propsValidators } from '@components/share'
 import { ButtonType, ButtonShape, ButtonSize } from '@components/share';
 
 const propsTypeValidators = {
@@ -46,16 +46,8 @@ const propsKeys = [
 	'onClick'
 ]
 
-export const ButtonPropsValidator = props => {
-	propsKeys.forEach(key => {
-		if (!propsTypeValidators[key]) {
-      console.warn(`${key}属性为无效的`)
-    } else if (!propsTypeValidators[key](props[key])) {
-			console.warn(`${key}属性的值类型错误，将使用默认值进行替换`)
-			props[key] = propsDefaultvalueMapping[key]
-    }
-	})
-  return React.cloneElement(props.children, {
-		
-	})
-}
+export const ButtonPropsValidator = propsValidators({
+	propsTypeValidators,
+	propsDefaultvalueMapping,
+	propsKeys
+})
