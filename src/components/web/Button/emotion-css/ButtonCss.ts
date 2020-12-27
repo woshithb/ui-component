@@ -1,4 +1,16 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
+
+const btn_focus_and_blur = keyframes`
+  0% {
+    box-shadow: 0px 0px 0px 0px #69c0ff;
+  }
+  50% {
+    box-shadow: 0px 0px 6px 0px #69c0ff;
+  }
+  100% {
+    box-shadow: 0px 0px 0px 0px #69c0ff;
+  }
+`
 
 export const button_clearDefault = css`
   outline: none;
@@ -24,5 +36,20 @@ export const button_primary = css`
   color: #ffffff;
   &:hover {
     background-color: #40a9ff;
+  }
+  &:focus {
+    animation-name: ${btn_focus_and_blur};
+    animation-duration: 1s;
+    border-color: #40a9ff;
+    background-color: #40a9ff;
+  }
+  &.active {
+    background-color: #1890ff;
+  }
+  &.disabled {
+    color: rgba(0,0,0,.25);
+    background: #f5f5f5;
+    border-color: #d9d9d9;
+    cursor: not-allowed;
   }
 `

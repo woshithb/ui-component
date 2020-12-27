@@ -30,10 +30,36 @@
     .btn-primary:hover{
       background-color: #40a9ff;
     }
+    .btn-primary:focus{
+      animation-name: btn_focus_and_blur;
+      animation-duration: 1s;
+      border-color: #40a9ff;
+      background-color: #40a9ff;
+    }
+    .btn-primary:active{
+      background-color: #1890ff;
+    }
+    .btn-primary:disabled{
+      color: rgba(0,0,0,.25);
+      background: #f5f5f5;
+      border-color: #d9d9d9;
+      cursor: not-allowed;
+    }
+    @keyframes btn_focus_and_blur {
+      0% {
+        box-shadow: 0px 0px 0px 0px #69c0ff;
+      }
+      50% {
+        box-shadow: 0px 0px 6px 0px #69c0ff;
+      }
+      100% {
+        box-shadow: 0px 0px 0px 0px #69c0ff;
+      }
+    }
   </style>
 </head>
 <body>
-  <button class='btn-clear-default btn btn-primary'>
+  <button class='btn-clear-default btn btn-primary' disabled>
     <span>按 钮</span>
   </button>
 </body>

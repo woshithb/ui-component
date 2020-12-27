@@ -3,10 +3,9 @@ import { SerializedStyles } from '@emotion/serialize';
 import { ButtonShape, ButtonSize, ButtonType } from '@components/share/enum';
 
 export interface IBaseButtonProps {
-  css?: SerializedStyles,
+  css?: SerializedStyles | SerializedStyles[],
   value?: string,
   type?: string,
-  autofocus?: boolean,
   disabled?: boolean
 }
 
