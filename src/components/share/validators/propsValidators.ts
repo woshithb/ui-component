@@ -34,10 +34,11 @@ export const propsValidators = ({
 			} else if (!propsTypeValidators[key](props[key])) {
 				console.warn(`${key}属性的值类型错误，将使用默认值进行替换`);
 				afterProcessProps[key] = propsDefaultvalueMapping[key];
-			}
+      } else {
+        afterProcessProps[key] = props[key]
+      }
 		});
 		return React.createElement(props.children, {
-			...propsDefaultvalueMapping,
 			...afterProcessProps,
 		});
   };

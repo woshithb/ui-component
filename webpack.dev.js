@@ -27,7 +27,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/demo/index.html'),
+      template: path.resolve(__dirname, './demo/index.html'),
       filename: 'index.html',
       minify: {
         collapseWhitespace: true,
@@ -43,6 +43,6 @@ module.exports = {
   devServer: {
     port: 3000,
     progress: true,
-    contentBase: path.resolve(__dirname, './src/demo')
+    contentBase: path.resolve(__dirname, './demo')
   }
 }
