@@ -1,16 +1,14 @@
 export enum ButtonType {
   Primary = 'parmary',
-  Ghost = 'ghost',
-  Dashed = 'Dashed',
+  Dashed = 'dashed',
   Link = 'link',
   Text = 'text',
-  Default = 'default'
+  Default = 'default',
 }
 
 export enum ButtonShape {
   Circle = 'circle',
   Round = 'round',
-  Default = 'default'
 }
 
 export enum ButtonSize {

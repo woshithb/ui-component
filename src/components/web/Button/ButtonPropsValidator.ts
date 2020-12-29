@@ -26,7 +26,7 @@ const propsDefaultvalueMapping = {
 	htmlType: 'button',
 	icon: null,
 	loading: false,
-	shape: ButtonShape.Default,
+	shape: ButtonShape.Round,
 	size: ButtonSize.Middle,
 	type: ButtonType.Default,
 };
